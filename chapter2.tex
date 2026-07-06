@@ -1,0 +1,32 @@
+\chapter{فرمول‌های کلیدی و مفاهیم پایه}
+\section{فرمول طولانی در قالب \lr{align}}
+یکی از مهم‌ترین مفاهیم در بهینه‌سازی نامقید، بردار گرادیان است. فرمول بازگشتی گرادیان کاهشی با گام ثابت به شکل زیر است که در آن \( x_k \) بردار نقطه جاری، \( \alpha \) طول گام و \( \nabla f(x_k) \) گرادیان تابع در آن نقطه می‌باشد:
+\begin{align}
+	x_{k+1} &= x_k - \alpha \nabla f(x_k) \nonumber \\
+	&= x_k - \alpha \left( \frac{\partial f}{\partial x_1}(x_k), 
+	\frac{\partial f}{\partial x_2}(x_k), \dots, 
+	\frac{\partial f}{\partial x_n}(x_k) \right)^\top
+	\label{eq:grad-descent-long}
+\end{align}
+در این فرمول، \( x_k \) در تکرار \( k \)ام به روز می‌شود. به \cref{eq:grad-descent-long} دقت کنید.
+
+\section{فرمول چندضابطه‌ای}
+یک مثال ساده از تابع چندضابطه‌ای که در بهینه‌سازی به عنوان تابع جریمه (Penalty) استفاده می‌شود به صورت زیر است:
+\begin{equation}
+	P(x) =
+	\begin{cases}
+		0 & \text{if } x \in [a,b], \\
+		c\,(x-a)^2 & \text{if } x < a, \\
+		c\,(x-b)^2 & \text{if } x > b.
+	\end{cases}
+	\label{eq:piecewise-penalty}
+\end{equation}
+این تابع به ازای \( c > 0 \) نقاط خارج از بازه \([a,b]\) را جریمه می‌کند. در \cref{eq:piecewise-penalty} حالت‌های مختلف شرطی مشاهده می‌شود.
+
+\section{فرمول انتخابی: نرم برداری}
+یکی دیگر از فرمول‌های پرکاربرد در بهینه‌سازی، نرم اقلیدسی یک بردار است که در تعریف معیار توقف الگوریتم‌ها ظاهر می‌شود:
+\begin{equation}
+	\|v\|_2 = \sqrt{\sum_{i=1}^{n} v_i^2}
+	\label{eq:norm2}
+\end{equation}
+در \cref{eq:norm2}\( v = (v_1, v_2, \dots, v_n) \) یک بردار دلخواه در \( \mathbb{R}^n \) می‌باشد. هر سه فرمول \cref{eq:grad-descent-long}، \cref{eq:piecewise-penalty} و \cref{eq:norm2} در فصل سوم مورد استفاده قرار می‌گیرند.
